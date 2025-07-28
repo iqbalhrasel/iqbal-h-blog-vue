@@ -1,7 +1,7 @@
 <template>
   <div class="max-w-[370px] lg:w-1/3 bg-bgDeep shadow-md rounded-2xl">
     <div
-      class="w-full max-w-[520px] aspect-[1.45] bg-[url('src/assets/images/dark_backg.png')] bg-contain bg-no-repeat bg-center mx-auto overflow-hidden rounded-2xl">
+      class="w-full max-w-[520px] aspect-[1.45] bg-img bg-contain bg-no-repeat bg-center mx-auto overflow-hidden rounded-2xl">
       <p class="w-full h-full flex justify-center items-center text-3xl text-gray-300 text-center p-6">
         {{ blog.title }}
 

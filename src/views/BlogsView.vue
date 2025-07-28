@@ -78,7 +78,7 @@
         <div class="flex lg:flex-row flex-col rounded-2xl mt-7" v-if="firstBlog">
           <div>
             <div
-              class=" xl:w-[520px] sm:w-[420px]  aspect-[1.45] bg-[url('src/assets/images/dark_backg.png')] bg-contain bg-no-repeat bg-center lg:mx-auto overflow-hidden rounded-2xl">
+              class=" xl:w-[520px] sm:w-[420px]  aspect-[1.45] bg-img bg-contain bg-no-repeat bg-center lg:mx-auto overflow-hidden rounded-2xl">
               <p class="w-full h-full flex justify-center items-center text-3xl text-gray-300 text-center p-6">
                 {{ firstBlog?.title }}</p>
             </div>
