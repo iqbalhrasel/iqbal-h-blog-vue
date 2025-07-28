@@ -20,12 +20,26 @@
         <div class="flex flex-col items-center lg:items-start">
           <p class="text-gray-300 font-semibold text-2xl mt-6 lg:mt-0">Hi There</p>
 
-          <p class="mt-10 about-p-txt">Lorem ipsum dolor sit amet, consectetur adipisicing
-            elit. Hic at obcaecati
-            dolore explicabo
-            quas possimus,
-            eius dolorum necessitatibus impedit aliquam doloremque delectus facilis iste repudiandae officia cumque ad
-            pariatur est.</p>
+          <p class="mt-10 about-p-txt">I'm <span class="text-red-400 font-semibold">{{ details.name }}.</span> I'm a web
+            app developer with a passion for
+            creating clean, responsive, and user-focused applications. Whether you're launching a brand-new idea or
+            looking to improve an existing app, I'm here to help bring your vision to life with solid code and
+            thoughtful design.</p>
+          <p class="mt-5 about-p-txt">
+            I specialize in building web applications that are fast, scalable, and easy to use—always keeping
+            performance and user experience in mind. From front-end interfaces to back-end systems, I enjoy working
+            across the full stack to create solutions that work.
+          </p>
+          <p class="mt-5 about-p-txt">
+            My goal is to make the development process smooth, collaborative, and even a little fun. I believe in good
+            communication, clean code, and long-term partnerships. Every project is a chance to build something
+            meaningful.
+          </p>
+          <p class="mt-5 about-p-txt">
+            If you're looking for someone who cares about both the details and the bigger picture, let's chat and make
+            something awesome together!
+          </p>
+
           <p class="mt-5 about-p-txt">Lorem ipsum, dolor sit amet consectetur adipisicing
             elit. Dolor, repellendus
             vitae. Non enim perferendis
@@ -57,7 +71,7 @@
 
           <div class="flex flex-col items-center w-full mt-10">
             <a :href="`${details.resume}?format=pdf`" target="_blank"
-              class="border-2 border-red-400 px-10 py-3 rounded-full text-cyan-300 font-medium hover:bg-red-400 hover:text-white transition duration-300 mx-auto">Download
+              class="border-2 border-red-400 px-7 py-3 rounded-full text-cyan-300 font-medium hover:bg-red-400 hover:text-white transition duration-300 mx-auto">Download
               Resume</a>
           </div>
 

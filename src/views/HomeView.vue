@@ -20,16 +20,10 @@
     <!-- my services -->
     <section class="bg-bgDeep py-24">
       <p class="section-red-txt">Services</p>
-      <h2 class="section-head-txt">My Services</h2>
+      <h2 class="section-head-txt">I Help Clients With</h2>
       <div class="flex flex-col items-center mt-6">
-        <p class="md:w-1/3 mx-10 md:mx-0 text-center text-gray-300">Lorem ipsum, dolor sit amet consectetur adipisicing
-          elit.
-          Maiores
-          pariatur tempore
-          ab
-          ullam atque
-          consequatur
-          ducimus inventore natus ipsa eum!</p>
+        <p class="md:w-1/3 mx-10 md:mx-0 text-center text-gray-300">Working together starts with understanding your
+          goals, so we can build powerful web apps that feel right — efficient, modern, and yours.</p>
         <div class="section-red-line mt-10"></div>
       </div>
 
@@ -101,7 +95,7 @@
 
           <div class="flex flex-col items-center w-full mt-10">
             <a :href="`${details.resume}?format=pdf`" target="_blank"
-              class="border-2 border-red-400 px-10 py-3 rounded-full text-cyan-300 font-medium hover:bg-red-400 hover:text-white transition duration-300 mx-auto">Download
+              class="border-2 border-red-400 px-7 py-3 rounded-full text-cyan-300 font-medium hover:bg-red-400 hover:text-white transition duration-300 mx-auto">Download
               Resume</a>
 
             <router-link :to="{ name: 'about' }" class="text-cyan-300 flex hover:underline mt-10">
@@ -121,7 +115,7 @@
     </section>
 
     <!-- expertise -->
-    <section class="px-20 md:px-28 xl:px-40 bg-bgDeep py-24 grid md:grid-cols-2">
+    <section class="px-5 sm:px-20 md:px-28 xl:px-40 bg-bgDeep py-24 grid md:grid-cols-2">
       <div class="md:mr-14 flex flex-col items-center md:items-start">
         <p class="section-red-txt mt-6">i'm expert on</p>
         <h2 class="section-head-txt md:text-start">Let's Work Together</h2>
@@ -183,8 +177,8 @@
         <h2 class="section-head-txt">Latest Blogs</h2>
         <div class="flex flex-col items-center mt-6">
           <p class="md:w-1/3 w-2/3 text-center text-gray-300">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum voluptatum tempore alias aliquam deserunt
-            provident ut.
+            Sharing ideas, lessons, and discoveries from my journey. These blogs offer insights, tips, and stories from
+            real projects and experiences.
           </p>
           <div class="section-red-line mt-10"></div>
         </div>
