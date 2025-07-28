@@ -190,6 +190,8 @@ async function fetchAllContent() {
 
     showReloadButton.value = false
   } catch (e) {
+    console.log(e);
+
     showLoadings.value = false;
     showError.value = true
     showReloadButton.value = true
