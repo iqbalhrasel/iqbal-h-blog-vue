@@ -114,6 +114,7 @@ async function validateCommentProcess() {
       }
     }
   } catch (e) {
+    isCommentSuccess.value = false
     triggerError(e)
   }
 
