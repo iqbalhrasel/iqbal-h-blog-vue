@@ -29,6 +29,8 @@ onMounted(async () => {
   const pathname = window.location.pathname
 
   if (!pathname.startsWith('/admin')) {
+    console.log('calling app.vue check session');
+
     await checkSession()
   }
 })
