@@ -7,12 +7,10 @@ import NotFound from '@/views/NotFound.vue'
 import ErrorPage from '@/views/ErrorPage.vue'
 import AccessDenied from '@/views/AccessDenied.vue'
 import { useUtility } from '@/composables/useUtility'
-import { axiosApi } from '@/lib/axios'
-import axios from 'axios'
 import { useAuthState } from '@/composables/useAuthState'
 
 const { getUserRole, isTokenExpired } = useUtility()
-const { isAdmin, isLoggedin } = useAuthState()
+const { isAdmin, isLoggedin, accessToken } = useAuthState()
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -103,41 +101,25 @@ const router = createRouter({
 })
 
 router.beforeEach(async (to, from, next) => {
-  let token = localStorage.getItem('tj')
-
-  // 1. Refresh token if expired
-  if (to.path.startsWith('/admin') && token !== null && isTokenExpired(token)) {
-
-    try {
-
-      const response = await axiosApi.post('/auth/refresh')
-      localStorage.setItem('tj', response.data.token)
-      token = response.data.token
-
-      isLoggedin.value = true
-    } catch (error) {
-      isLoggedin.value = false
-      isAdmin.value = false
-
-      if (axios.isAxiosError(error)) {
-
-        if (error.response?.status === 401) {
-          return next({ name: 'login' })
-        }
-      }
-      return next({ name: 'access-denied' })
-    }
-  }
-
-  // 2. Guard /admin routes
+  // Guard /admin route
   if (to.path.startsWith('/admin')) {
 
-    if (token === null) {
+    //login check
+    const loginState = JSON.parse(localStorage.getItem('log_st') || 'false')
+    if (loginState) {
+      isLoggedin.value = true
+    } else {
       return next({ name: 'access-denied' })
     }
-    isLoggedin.value = true
-    const role = getUserRole(token)
 
+    //token check
+    const token = accessToken.value
+    if (token === null || token === '') {
+      return next({ name: 'access-denied' })
+    }
+
+    //role
+    const role = getUserRole(token)
     if (role === 'ADMIN') {
       isAdmin.value = true
       return next()
@@ -145,9 +127,10 @@ router.beforeEach(async (to, from, next) => {
       isAdmin.value = false
       return next({ name: 'access-denied' })
     }
+
   }
 
-  // 3. Allow all other routes
+  // Allow all other routes
   return next()
 })
 

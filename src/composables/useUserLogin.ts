@@ -3,7 +3,7 @@ import { axiosApi } from "@/lib/axios";
 import { useUtility } from "./useUtility";
 import { useAuthState } from "./useAuthState";
 
-const { isAdmin, isLoggedin } = useAuthState()
+const { isAdmin, isLoggedin, accessToken } = useAuthState()
 const { isTokenExpired, getUserRole } = useUtility()
 
 const email = ref('')
@@ -17,7 +17,9 @@ async function handleLogin() {
       password: password.value
     })
 
-    localStorage.setItem('tj', response.data.token)
+    accessToken.value = response.data.token
+
+    localStorage.setItem('log_st', JSON.stringify(true));
 
     isLoggedin.value = true
 
@@ -31,7 +33,6 @@ async function handleLogin() {
     password.value = ''
 
   } catch (e) {
-    //add notification
     isLoggedin.value = false
     isAdmin.value = false
 
@@ -39,35 +40,13 @@ async function handleLogin() {
   }
 }
 
-async function checkSession() {
-  const token = localStorage.getItem('tj')
-
-  if (token) {
-    const isExpired = isTokenExpired(token)
-
-    if (isExpired) {
-      await refreshAccessToken()
-    } else {
-      isLoggedin.value = true
-
-      if (getUserRole(token) === 'ADMIN') {
-        isAdmin.value = true
-      } else {
-        isAdmin.value = false
-      }
-    }
-  }
-  else {
-    isLoggedin.value = false
-    isAdmin.value = false
-  }
-}
-
 async function refreshAccessToken() {
   try {
     const response = await axiosApi.post(`/auth/refresh`, null)
 
-    localStorage.setItem('tj', response.data.token)
+    accessToken.value = response.data.token
+
+    localStorage.setItem('log_st', JSON.stringify(true));
 
     isLoggedin.value = true
 
@@ -79,8 +58,11 @@ async function refreshAccessToken() {
 
   } catch (e) {
 
+    //if refresh token expires, execute logout procedure
     isLoggedin.value = false
     isAdmin.value = false
+
+
   }
 }
 
@@ -90,13 +72,15 @@ async function handleLogout() {
 
     isLoggedin.value = false
     isAdmin.value = false
-    localStorage.removeItem('tj')
+
+    accessToken.value = ''
+    localStorage.setItem('log_st', JSON.stringify(false));
+
   } catch (e) {
-    //add notification
     throw e
   }
 }
 
 export function useUserLogin() {
-  return { email, password, handleLogin, checkSession, refreshAccessToken, handleLogout }
+  return { email, password, handleLogin, refreshAccessToken, handleLogout }
 }

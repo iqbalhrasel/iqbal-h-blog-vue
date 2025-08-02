@@ -32,12 +32,14 @@
 
 <script setup lang="ts">
 import { useAuthState } from '@/composables/useAuthState';
+import { useNotification } from '@/composables/useNotification';
 import { useUserLogin } from '@/composables/useUserLogin';
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
 
 const { isAdmin } = useAuthState()
 const { handleLogout } = useUserLogin()
+const { triggerError } = useNotification()
 
 const router = useRouter()
 
@@ -52,8 +54,7 @@ async function logout() {
     await handleLogout()
     await router.push({ name: 'login' })
   } catch (e) {
-    console.log(e);
-
+    triggerError(e)
   }
 }
 </script>

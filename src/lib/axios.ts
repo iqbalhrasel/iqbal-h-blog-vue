@@ -1,4 +1,7 @@
+import { useAuthState } from "@/composables/useAuthState";
 import axios from "axios";
+
+
 
 export const axiosApi = axios.create({
   baseURL: import.meta.env.VITE_API_URL,
@@ -6,7 +9,9 @@ export const axiosApi = axios.create({
 })
 
 axiosApi.interceptors.request.use(config => {
-  const token = localStorage.getItem('tj')
+  const { accessToken } = useAuthState()
+
+  const token = accessToken.value
 
   if (token) {
     config.headers.Authorization = `Bearer ${token}`

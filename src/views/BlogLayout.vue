@@ -9,4 +9,8 @@
 <script setup lang="ts">
 import BlogNavBar from '@/components/BlogNavBar.vue';
 import BlogFooterSection from '@/components/BlogFooterSection.vue';
+import { useTopics } from '@/composables/useTopics';
+
+const { fetchTopics } = useTopics()
+fetchTopics()
 </script>

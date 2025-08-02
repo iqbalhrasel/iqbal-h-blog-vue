@@ -11,27 +11,12 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted } from 'vue';
-import { useUserLogin } from './composables/useUserLogin';
-import { useTopics } from './composables/useTopics';
 import NotificationTeleport from './components/NotificationTeleport.vue';
 import { useNotification } from '@/composables/useNotification';
+import { useAuthStore } from './stores/authStore';
+
+const authStore = useAuthStore()
+authStore.refreshIfLoggedin();
 
 const { notifications, removeNotification } = useNotification()
-
-const { fetchTopics } = useTopics()
-const { checkSession } = useUserLogin()
-
-
-onMounted(async () => {
-  await fetchTopics();
-
-  const pathname = window.location.pathname
-
-  if (!pathname.startsWith('/admin')) {
-    console.log('calling app.vue check session');
-
-    await checkSession()
-  }
-})
 </script>
