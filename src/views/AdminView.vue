@@ -32,7 +32,7 @@ import AdminTopic from '@/components/AdminTopic.vue';
 import { useTopics } from '@/composables/useTopics';
 
 const { fetchTopics } = useTopics()
-fetchTopics()
+
 
 const component = ref({ id: 1, comp: AdminDashboard })
 const adminComponents = ref([
@@ -51,6 +51,7 @@ function selectComponent(id: number) {
 
 onMounted(async () => {
   document.title = 'Admin Panel'
+  await fetchTopics()
 })
 </script>
 

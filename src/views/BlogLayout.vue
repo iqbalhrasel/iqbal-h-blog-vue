@@ -10,7 +10,11 @@
 import BlogNavBar from '@/components/BlogNavBar.vue';
 import BlogFooterSection from '@/components/BlogFooterSection.vue';
 import { useTopics } from '@/composables/useTopics';
+import { onMounted } from 'vue';
 
 const { fetchTopics } = useTopics()
-fetchTopics()
+
+onMounted(async () => {
+  await fetchTopics()
+})
 </script>
