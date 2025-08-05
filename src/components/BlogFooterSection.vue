@@ -6,13 +6,10 @@
       <div class="flex md:flex-row flex-col items-center md:justify-between justify-center my-8">
         <div class="md:block flex flex-col items-center">
           <BlogLogoIcon class="text-4xl size-10" />
-          <p class="max-w-96 text-sm text-gray-500 font-medium mt-4">Lorem ipsum, dolor sit amet consectetur adipisicing
-            elit. Eius
-            impedit sunt optio
-            eveniet
-            sit deleniti,
-            earum
-            distinctio omnis veritatis incidunt quaerat quasi.</p>
+          <p class="max-w-96 text-sm text-gray-500 font-medium mt-4 md:text-start text-center">Stacktrip is a blog
+            website where I
+            will share my
+            programming journey, learnings and interesting tech news. I hope you'll love it.</p>
         </div>
         <div class="mt-10 md:mt-0">
           <RouterLink :to="{ name: 'home' }"

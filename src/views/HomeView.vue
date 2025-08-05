@@ -58,7 +58,9 @@
 
         <div class="flex flex-col items-center lg:items-start mt-8 lg:mt-0">
           <p class=" text-gray-300 text-center lg:text-start">
-            Hi, I am <span class="text-red-400 font-semibold">{{ details.name }}</span>. I'm a passionate full-stack
+            Hi, I am <RouterLink :to="{ name: 'about' }" class="text-red-400 hover:text-opacity-80 font-semibold">{{
+              details.name }}
+            </RouterLink>. I'm a passionate full-stack
             developer
             specializing in Spring Boot,
             Vue.js, and
@@ -84,11 +86,13 @@
 
               <div class="text-center md:text-start">
                 <p class="text-red-400 font-bold">LinkedIn:</p>
-                <p class="text-gray-300">{{ details.linkedin }}</p>
+                <a :href="'https://' + details.linkedin" target="_blank" class="text-gray-300 hover:text-cyan-400">{{
+                  details.linkedin }}</a>
               </div>
               <div class="text-center md:text-start">
                 <p class="text-red-400 font-bold">Github:</p>
-                <p class="text-gray-300">{{ details.github }}</p>
+                <a :href="'https://' + details.github" target="_blank" class="text-gray-300 hover:text-cyan-400">{{
+                  details.github }}</a>
               </div>
             </div>
           </div>
