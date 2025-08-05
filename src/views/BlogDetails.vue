@@ -33,7 +33,7 @@
       <!-- hero -->
       <div class="flex flex-col items-center md:py-8 py-7">
         <div class=" text-sm font-semibold text-gray-500 bg-gray-100 mx-auto px-4 py-1 rounded-full">{{ blog?.topic.name
-        }}
+          }}
         </div>
         <h1 class="md:w-2/3 w-96 text-4xl font-semibold text-center mt-6 text-gray-700">{{ blog?.title }}
         </h1>
@@ -335,7 +335,7 @@ async function deleteBlog() {
 }
 
 #blog-body p code {
-  @apply bg-gray-100 px-2 rounded text-sm
+  @apply bg-gray-200 px-2 rounded
 }
 
 #blog-body pre code {
