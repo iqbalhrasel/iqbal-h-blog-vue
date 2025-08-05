@@ -14,6 +14,7 @@
       <!-- news and inerests -->
       <section class="mb-32">
         <h2 class="blog-head-txt">News and Interests</h2>
+
         <div class=" border-b-2"></div>
 
         <!-- loading -->

@@ -90,7 +90,7 @@
           </button>
           <button @click="editor.chain().focus().toggleBlockquote().run()"
             :class="{ 'is-active': editor.isActive('blockquote') }">
-            ""
+            bq
           </button>
           <button @click="editor.chain().focus().setHorizontalRule().run()">
             hr
