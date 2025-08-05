@@ -234,6 +234,11 @@ onBeforeUnmount(() => {
   @apply bg-green-100
 }
 
+.tiptap p code {
+  @apply bg-gray-200
+}
+
+
 .tiptap pre {
   @apply bg-slate-600 text-purple-50
 }

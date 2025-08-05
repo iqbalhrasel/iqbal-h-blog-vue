@@ -104,6 +104,11 @@
           <button @click="editor.chain().focus().redo().run()" :disabled="!editor.can().chain().focus().redo().run()">
             <t_redo />
           </button>
+          <button @click="editor.chain().focus().toggleCode().run()"
+            :disabled="!editor.can().chain().focus().toggleCode().run()"
+            :class="{ 'is-active': editor.isActive('code') }">
+            Code
+          </button>
 
           <!-- button end -->
         </div>
@@ -309,6 +314,11 @@ onBeforeUnmount(() => {
 .tiptap blockquote {
   @apply bg-green-100
 }
+
+.tiptap p code {
+  @apply bg-gray-200
+}
+
 
 .tiptap pre {
   @apply bg-slate-600 text-purple-50
