@@ -311,7 +311,7 @@ async function deleteBlog() {
 
 <style>
 #blog-body h2 {
-  @apply font-bold mt-5 mb-1 text-2xl
+  @apply font-bold mt-8 mb-1 text-2xl
 }
 
 #blog-body h3 {
@@ -323,7 +323,7 @@ async function deleteBlog() {
 }
 
 #blog-body p {
-  @apply mb-2 text-lg
+  @apply mb-2 text-lg leading-8
 }
 
 #blog-body ul {
@@ -331,7 +331,7 @@ async function deleteBlog() {
 }
 
 #blog-body blockquote {
-  @apply bg-gray-100 text-gray-600 font-medium pl-10 py-2 italic border-l-8 rounded-l-md border-l-gray-300
+  @apply bg-gray-100 text-gray-600 font-medium pl-10 pt-2 pb-1 mt-2 italic border-l-8 rounded-l-md border-l-gray-300
 }
 
 #blog-body p code {
