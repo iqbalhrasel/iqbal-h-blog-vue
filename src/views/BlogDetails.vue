@@ -335,7 +335,7 @@ async function deleteBlog() {
 }
 
 #blog-body p code {
-  @apply bg-gray-200 px-2 rounded
+  @apply bg-gray-100 px-2 rounded text-sm
 }
 
 #blog-body pre code {
