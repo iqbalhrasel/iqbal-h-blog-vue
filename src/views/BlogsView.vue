@@ -1,9 +1,12 @@
 <template>
   <div class=" pt-16">
     <!-- hero -->
-    <section class="flex flex-col items-center py-20 lg:px-36 sm:px-16 px-12 bg-blue-50">
+    <section class="flex flex-col items-center py-[4.3rem] lg:px-36 sm:px-16 px-12 bg-blue-50">
       <p class="text-red-500 font-semibold text-lg text-center mb-4">BLOGS</p>
-      <h1 class="text-gray-700 font-semibold md:text-5xl text-3xl text-center max-w-96">Blogs on my tech stack &
+      <h1 class="text-gray-700 font-semibold md:text-5xl text-3xl text-center max-w-96 md:leading-[3.5rem]">Blogs on my
+        tech
+        stack
+        &
         programming</h1>
     </section>
 
