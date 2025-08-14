@@ -86,7 +86,7 @@
             :class="{ 'is-active': editor.isActive('orderedList') }">
             <t_list_num />
           </button>
-          <button @click="editor.chain().focus().toggleCodeBlock().run()"
+          <button @click="editor.commands.setMergedCodeBlock()"
             :class="{ 'is-active': editor.isActive('codeBlock') }">
             <t_code />
           </button>
@@ -154,6 +154,16 @@ const { topics } = useTopics()
 //notif pop up
 const { triggerSuccess, triggerError } = useNotification()
 
+// const editor = useEditor({
+//   editorProps: {
+//     attributes: {
+//       class: 'border p-4 min-h-52 max-h-52 overflow-y-auto',
+//     },
+//   },
+//   content: "",
+//   extensions: [StarterKit],
+// })
+
 const editor = useEditor({
   editorProps: {
     attributes: {
@@ -161,7 +171,40 @@ const editor = useEditor({
     },
   },
   content: "",
-  extensions: [StarterKit],
+  extensions: [
+    StarterKit.configure({
+      codeBlock: {
+        // Override the default codeBlock command
+        addCommands() {
+          return {
+            toggleMergedCodeBlock:
+              () =>
+                ({ state, chain }) => {
+                  const { $from } = state.selection
+                  const parentNode = $from.node($from.depth)
+
+                  if (parentNode.type.name === 'codeBlock') {
+                    // Inside a code block → turn back into paragraph
+                    return chain().toggleCodeBlock().run()
+                  } else {
+                    // Merge paragraphs into one code block
+                    const { from, to } = state.selection
+                    const text = state.doc.textBetween(from, to, '\n')
+
+                    return chain()
+                      .deleteRange({ from, to })
+                      .insertContent({
+                        type: 'codeBlock',
+                        content: [{ type: 'text', text }],
+                      })
+                      .run()
+                  }
+                },
+          }
+        },
+      },
+    }),
+  ],
 })
 
 
