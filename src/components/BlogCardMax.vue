@@ -2,7 +2,7 @@
   <div class=" rounded-2xl mt-7">
     <div>
       <div
-        class="lg:w-auto sm:w-[420px] aspect-[1.45] bg-[url('src/assets/images/dark_backg.png')] bg-contain bg-no-repeat bg-center lg:mx-auto overflow-hidden rounded-2xl">
+        class="lg:w-auto sm:w-[420px] aspect-[1.45] bg-img bg-contain bg-no-repeat bg-center lg:mx-auto overflow-hidden rounded-2xl">
         <p class="w-full h-full flex justify-center items-center text-3xl text-gray-300 text-center p-6">
           {{ blogCard.title }}</p>
       </div>
