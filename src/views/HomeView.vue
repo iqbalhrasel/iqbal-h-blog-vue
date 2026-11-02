@@ -221,11 +221,11 @@ const experience = [
                   <span class="ml-1 text-yellow-300 font-bold animate-ping">_</span>
                 </p>
                 <div class="flex space-x-5 mb-1">
-                  <a href="#projects"
+                  <a href="https://docs.google.com/document/d/1HrCh9kHpVvLI9LN8nz4FnSmQHvrAsDd9iSRz9bTcr_c/export?format=pdf" rel="noopener noreferrer" target="_blank"
                     class="border-b border-b-emerald-950 hover:border-b-emerald-400 py-0.5 text-zinc-500 text-center text-sm font-semibold hover:text-emerald-400">
                     PDF
                   </a>
-                  <a href="#projects"
+                  <a href="https://docs.google.com/document/d/1HrCh9kHpVvLI9LN8nz4FnSmQHvrAsDd9iSRz9bTcr_c/export?format=docx"
                     class="border-b border-b-emerald-950 hover:border-b-emerald-400 py-0.5 text-zinc-500 text-center text-sm font-semibold hover:text-emerald-400">
                     DOCX
                   </a>
