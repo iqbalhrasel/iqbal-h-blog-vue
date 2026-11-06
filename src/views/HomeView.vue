@@ -93,7 +93,7 @@ const experience = [
 
     <main>
       <!-- Hero -->
-      <section class="mx-auto max-w-6xl px-6 pb-28 pt-28 md:pb-40 md:pt-8">
+      <section class="mx-auto max-w-6xl px-6 pb-28 pt-10 md:pb-40 md:pt-16">
         <div class="max-w-4xl">
           <div
             class="mb-7 inline-flex items-center gap-2 rounded-full border border-emerald-400/20 bg-emerald-400/[0.06] px-3 py-1.5 font-mono text-xs text-emerald-300">
